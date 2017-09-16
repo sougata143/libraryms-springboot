@@ -31,7 +31,13 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public Books update(Books book) {
+    public Books update(long id,Books book) {
         return bookRepository.save(book);
     }
+
+    @Override
+    public void updateByID(long id, String name, String writer, String publisher) {
+        bookRepository.updateById(id,name,writer,publisher);
+    }
+
 }

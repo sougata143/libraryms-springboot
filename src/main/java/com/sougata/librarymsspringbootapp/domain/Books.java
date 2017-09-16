@@ -14,10 +14,10 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Books {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String name;
-    private String writer;
-    private String publisher;
+    public long id;
+    public String name;
+    public String writer;
+    public String publisher;
 
     public Books() {
     }

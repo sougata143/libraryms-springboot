@@ -34,8 +34,16 @@ public class BookController {
     }
 
     @PutMapping("/updatebook/{id}")
-    public Books updateBook(@PathVariable("id") Books book){
-        return bookService.update(book);
+    public void updateBuook(@PathVariable("id") long id, @ModelAttribute Books book){
+        bookService.update(id, book);
+    }
+
+    @PutMapping("/updatebook/{id}/{name}/{writer}/{publisher}")
+    public void updateBookById(@PathVariable("id") long id,
+                               @PathVariable("name")String name,
+                               @PathVariable("writer") String writer,
+                               @PathVariable("publisher") String publisher){
+        bookService.updateByID(id,name,writer,publisher);
     }
 
 }
