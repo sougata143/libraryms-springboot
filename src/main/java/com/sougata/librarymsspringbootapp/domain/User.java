@@ -17,6 +17,8 @@ public class User {
     private int urole;
     private String name;
     private String email;
+    private String password;
+    private String contact;
 
     public User() {
     }
@@ -29,6 +31,5 @@ public class User {
         this.urole = urole;
     }
 
-    private String password;
-    private String contact;
+
 }
