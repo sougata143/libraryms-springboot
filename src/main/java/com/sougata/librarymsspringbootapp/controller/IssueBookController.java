@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/library")
+@RequestMapping("/api/library/books/issuebooks")
 public class IssueBookController {
 
     private final Logger log = LoggerFactory.getLogger(IssueBookController.class);
@@ -19,22 +19,22 @@ public class IssueBookController {
         this.issueBookService = issueBookService;
     }
 
-    @GetMapping("/issuebooks")
+    @GetMapping("/")
     public Iterable<Issued> listIssueBooks(){
         return issueBookService.list();
     }
 
-    @PostMapping("/saveissuebooks")
+    @PostMapping("/")
     public Issued save(Issued issued){
         return issueBookService.save(issued);
     }
 
-    @DeleteMapping("/deleteissue/{id}")
+    @DeleteMapping("/{id}")
     public void deleteIssuedbooks(@PathVariable("id") long id){
         issueBookService.delete(id);
     }
 
-    @PutMapping("/updateissue/{id}")
+    @PutMapping("/{id}")
     public Issued updateIssuedBooks(@PathVariable("id") Issued issued){
         return issueBookService.update(issued);
     }

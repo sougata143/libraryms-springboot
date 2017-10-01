@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.nio.charset.Charset;
 
 @RestController
-@RequestMapping("/api/library")
+@RequestMapping("/api/library/user")
 public class UserController {
 
     private final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -23,22 +23,22 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/")
     public Iterable<User> listUsers(){
         return userService.list();
     }
 
-    @PostMapping(value = "/saveuser")
+    @PostMapping("/")
     public User save( User user){
         return userService.save(user);
     }
 
-    @DeleteMapping("/deleteuser/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable("id") long id){
         userService.delete(id);
     }
 
-    @PutMapping("/updateuser/{id}")
+    @PutMapping("/{id}")
     public User updateUser(@PathVariable("id") User user){
         return userService.update(user);
     }

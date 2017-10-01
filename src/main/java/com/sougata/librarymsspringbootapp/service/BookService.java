@@ -7,5 +7,5 @@ public interface BookService {
     Books save(Books books);
     void delete(long id);
     Books update(long id, Books book);
-    void updateByID(long id, String name, String writer, String publisher);
+
 }

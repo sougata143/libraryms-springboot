@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookServiceImpl implements BookService{
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
@@ -32,12 +32,13 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public Books update(long id,Books book) {
+
+        Books existingBook = bookRepository.getById(id);
+
+        book.setId(existingBook.getId());
+
         return bookRepository.save(book);
     }
 
-    @Override
-    public void updateByID(long id, String name, String writer, String publisher) {
-        bookRepository.updateById(id,name,writer,publisher);
-    }
 
 }

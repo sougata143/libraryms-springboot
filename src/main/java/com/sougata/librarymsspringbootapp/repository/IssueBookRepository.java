@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IssueBookRepository extends CrudRepository<Issued, Long>{
+
+    public Issued getById(Long id);
 }

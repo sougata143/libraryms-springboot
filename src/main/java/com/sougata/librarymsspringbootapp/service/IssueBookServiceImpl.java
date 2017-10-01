@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class IssueBookServiceImpl implements IssueBookService{
     @Autowired
-    IssueBookRepository issueBookRepository;
+    private IssueBookRepository issueBookRepository;
 
     public IssueBookServiceImpl(IssueBookRepository issueBookRepository) {
         this.issueBookRepository = issueBookRepository;
@@ -31,6 +31,9 @@ public class IssueBookServiceImpl implements IssueBookService{
 
     @Override
     public Issued update(Issued issued) {
+
+        //Issued issuedBook = issueBookRepository.getById();
+
         return issueBookRepository.save(issued);
     }
 }

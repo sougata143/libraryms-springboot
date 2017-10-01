@@ -19,6 +19,14 @@ public class Books {
     public String writer;
     public String publisher;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Books() {
     }
 

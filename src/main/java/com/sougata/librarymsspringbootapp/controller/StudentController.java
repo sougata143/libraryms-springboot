@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/library")
+@RequestMapping("/api/library/student")
 public class StudentController {
     private final Logger log = LoggerFactory.getLogger(StudentController.class);
     @Autowired
@@ -18,22 +18,22 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/student")
+    @GetMapping("/")
     public Iterable<Student> listStudents(){
         return studentService.list();
     }
 
-    @PostMapping("/studentsave")
+    @PostMapping("/")
     public Student save( Student student){
         return studentService.save(student);
     }
 
-    @DeleteMapping("/deletestudent/{id}")
+    @DeleteMapping("/{id}")
     public void deleteStudent(@PathVariable("id") long id){
         studentService.delete(id);
     }
 
-    @PutMapping("/updatestudent/{id}")
+    @PutMapping("/{id}")
     public Student updateStudent(@PathVariable("id") Student student){
         return studentService.update(student);
     }
