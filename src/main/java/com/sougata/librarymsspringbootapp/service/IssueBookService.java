@@ -6,5 +6,5 @@ public interface IssueBookService {
     Iterable<Issued> list();
     Issued save(Issued issued);
     void delete(long id);
-    Issued update(Issued issued);
+    Issued update(long id,Issued issued);
 }

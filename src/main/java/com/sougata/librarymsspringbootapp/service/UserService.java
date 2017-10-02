@@ -6,5 +6,5 @@ public interface UserService {
     Iterable<User> list();
     User save(User user);
     void delete(long id);
-    User update(User user);
+    User update(long id, User user);
 }

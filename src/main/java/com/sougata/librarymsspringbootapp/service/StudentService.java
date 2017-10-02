@@ -6,5 +6,5 @@ public interface StudentService {
     Iterable<Student> list();
     Student save(Student student);
     void delete(long id);
-    Student update(Student student);
+    Student update(long id, Student student);
 }

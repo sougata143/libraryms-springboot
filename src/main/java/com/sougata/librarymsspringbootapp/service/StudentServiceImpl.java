@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentServiceImpl implements StudentService{
     @Autowired
-    StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
@@ -31,7 +31,11 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student update(Student student) {
+    public Student update(long id, Student student) {
+
+        Student student1 = studentRepository.getById(id);
+        student.setId(student1.getId());
+
         return studentRepository.save(student);
     }
 }

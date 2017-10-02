@@ -24,7 +24,7 @@ public class StudentController {
     }
 
     @PostMapping("/")
-    public Student save( Student student){
+    public Student save( @RequestBody Student student){
         return studentService.save(student);
     }
 
@@ -34,8 +34,9 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public Student updateStudent(@PathVariable("id") Student student){
-        return studentService.update(student);
+    public Student updateStudent(@PathVariable("id") long id, @RequestBody Student student){
+
+        return studentService.update(id, student);
     }
 
 }

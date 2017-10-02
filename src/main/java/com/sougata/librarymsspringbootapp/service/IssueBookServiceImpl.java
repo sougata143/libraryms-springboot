@@ -30,9 +30,10 @@ public class IssueBookServiceImpl implements IssueBookService{
     }
 
     @Override
-    public Issued update(Issued issued) {
+    public Issued update(long id, Issued issued) {
 
-        //Issued issuedBook = issueBookRepository.getById();
+        Issued issued1 = issueBookRepository.getById(id);
+        issued.setId(issued1.getId());
 
         return issueBookRepository.save(issued);
     }

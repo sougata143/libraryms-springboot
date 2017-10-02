@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
 
@@ -32,7 +32,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User update(User user) {
+    public User update(long id, User user) {
+
+        User user1 = userRepository.getById(id);
+        user.setId(user1.getId());
+
         return userRepository.save(user);
     }
 }

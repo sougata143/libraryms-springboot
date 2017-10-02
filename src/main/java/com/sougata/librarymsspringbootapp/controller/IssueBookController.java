@@ -25,7 +25,7 @@ public class IssueBookController {
     }
 
     @PostMapping("/")
-    public Issued save(Issued issued){
+    public Issued save(@RequestBody Issued issued){
         return issueBookService.save(issued);
     }
 
@@ -35,8 +35,8 @@ public class IssueBookController {
     }
 
     @PutMapping("/{id}")
-    public Issued updateIssuedBooks(@PathVariable("id") Issued issued){
-        return issueBookService.update(issued);
+    public Issued updateIssuedBooks(@PathVariable("id") long id, @RequestBody Issued issued){
+        return issueBookService.update(id,issued);
     }
 
 
