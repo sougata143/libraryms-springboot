@@ -28,6 +28,11 @@ public class UserController {
         return userService.list();
     }
 
+    @GetMapping("/{name}")
+    public User listUsersByName(@PathVariable("name") String name){
+        return userService.getByName(name);
+    }
+
     @PostMapping("/")
     public User save( @RequestBody User user){
         return userService.save(user);

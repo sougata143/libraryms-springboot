@@ -40,5 +40,10 @@ public class BookServiceImpl implements BookService{
         return bookRepository.save(book);
     }
 
+    @Override
+    public Books getByName(String name) {
+        return bookRepository.getByName(name);
+    }
+
 
 }

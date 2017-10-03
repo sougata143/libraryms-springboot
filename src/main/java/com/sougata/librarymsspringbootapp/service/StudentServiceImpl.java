@@ -20,6 +20,8 @@ public class StudentServiceImpl implements StudentService{
         return studentRepository.findAll();
     }
 
+
+
     @Override
     public Student save(Student student) {
         return studentRepository.save(student);
@@ -37,5 +39,10 @@ public class StudentServiceImpl implements StudentService{
         student.setId(student1.getId());
 
         return studentRepository.save(student);
+    }
+
+    @Override
+    public Student getByName(String name) {
+        return studentRepository.getByName(name);
     }
 }

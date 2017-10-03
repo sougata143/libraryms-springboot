@@ -7,4 +7,5 @@ public interface UserService {
     User save(User user);
     void delete(long id);
     User update(long id, User user);
+    User getByName(String name);
 }

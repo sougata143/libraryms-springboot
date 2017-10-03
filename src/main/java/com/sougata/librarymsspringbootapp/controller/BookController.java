@@ -23,6 +23,11 @@ public class BookController {
         return bookService.list();
     }
 
+    @GetMapping("/{name}")
+    public Books listBooksByName(@PathVariable("name") String name){
+        return bookService.getByName(name);
+    }
+
     @PostMapping("/")
     public Books save( @RequestBody Books books){
         return bookService.save(books);

@@ -22,5 +22,6 @@ public interface BookRepository  extends JpaRepository<Books, Long> {
     ,@Param("writer") String writer, @Param("publisher") String publisher);
 
     public Books getById(Long id);
+    public Books getByName(String name);
 
 }

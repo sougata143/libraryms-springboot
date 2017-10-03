@@ -1,6 +1,7 @@
 package com.sougata.librarymsspringbootapp.controller;
 
 import com.sougata.librarymsspringbootapp.domain.Student;
+import com.sougata.librarymsspringbootapp.repository.StudentRepository;
 import com.sougata.librarymsspringbootapp.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,11 @@ public class StudentController {
     @GetMapping("/")
     public Iterable<Student> listStudents(){
         return studentService.list();
+    }
+
+    @GetMapping("/{name}")
+    public Student listStudentsByName(@PathVariable("name") String name){
+        return  studentService.getByName(name);
     }
 
     @PostMapping("/")
